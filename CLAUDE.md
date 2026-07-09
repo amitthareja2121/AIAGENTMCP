@@ -55,6 +55,22 @@ test-results/             # Playwright run artifacts (gitignored-worthy)
 > On Windows PowerShell, the `npx.ps1` shim may be blocked by execution policy.
 > Invoke via `cmd /c "npx playwright test ..."` to bypass it.
 
+## Allure Reporting
+
+Allure runs automatically alongside every test — no extra steps needed.
+Results are written to `allure-results/` during each run.
+
+After a test run, open the interactive HTML report:
+```
+cmd /c "npx allure serve allure-results"
+```
+Or generate a static report:
+```
+cmd /c "npx allure generate allure-results --clean -o allure-report"
+cmd /c "npx allure open allure-report"
+```
+The Allure report shows: step-by-step timeline, pass/fail donut, flaky test detection, history trends.
+
 ## Test Authoring Conventions
 
 - **No hardcoded waits.** Never use `page.waitForTimeout` / sleeps. Rely on
