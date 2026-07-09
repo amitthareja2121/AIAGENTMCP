@@ -13,11 +13,12 @@ execution results to Excel summaries.
 
 Whenever the user asks to create, modify, or run a test case scenario via a short chat prompt, always wrap the execution inside our standard enterprise pipeline seamlessly:
 
-1. **Sequential ID Generation:** Before creating a new spec, scan `tests/e2e-demo-*.spec.ts` to find the highest existing number, then use `highest + 1` as the run ID. If no specs exist yet, start at `1`. Use this ID to name the generated test file (`tests/e2e-demo-[ID].spec.ts`) and to coordinate logging. Use this PowerShell command to derive the next ID:
+1. **Sequential ID Generation:** Before creating a new spec, scan `tests/TC-*.spec.ts` to find the highest existing number, then use `highest + 1` (zero-padded to 3 digits) as the run ID. If no specs exist yet, start at `1` → `TC-001`. Use this ID to name the generated test file (`tests/TC-[NNN].spec.ts`) and to coordinate logging. Use this PowerShell command to derive the next ID:
    ```powershell
-   $files = Get-ChildItem tests\e2e-demo-*.spec.ts -ErrorAction SilentlyContinue
-   $id = if ($files) { ($files | ForEach-Object { [int](($_.Name -replace 'e2e-demo-','') -replace '\.spec\.ts','') } | Measure-Object -Maximum).Maximum + 1 } else { 1 }
-   Write-Host "RUN ID: $id"
+   $files = Get-ChildItem tests\TC-*.spec.ts -ErrorAction SilentlyContinue
+   $id = if ($files) { ($files | ForEach-Object { [int](($_.Name -replace 'TC-','') -replace '\.spec\.ts','') } | Measure-Object -Maximum).Maximum + 1 } else { 1 }
+   $idStr = $id.ToString('D3')
+   Write-Host "RUN ID: TC-$idStr"
    ```
 2. **Execution Mode:** Always execute Playwright tests in HEADED mode (`headless: false`) so the UI actions are physically visible on screen.
 3. **Smart Data Logging:** Append execution metrics and the sequential ID directly into the spreadsheet matching the pattern `C:\Users\1000528\files_claude\E2E_Test_Execution_Summary-[ID].xlsx`. Maintain historical data integrity.

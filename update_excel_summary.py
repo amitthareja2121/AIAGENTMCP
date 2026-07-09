@@ -143,6 +143,14 @@ def add_dashboard(wb, all_records):
     for c in ['D','E','F']:
         ds.column_dimensions[c].width = 10
 
+    # ── Chart section label (row 6) ────────────────────────────────────────────
+    ds.merge_cells('A6:F6')
+    cl = ds.cell(6, 1, 'Pass / Fail Distribution')
+    cl.font      = Font(bold=True, size=11, color='1F3864', name='Calibri')
+    cl.fill      = make_fill('BDD7EE')
+    cl.alignment = Alignment(horizontal='center', vertical='center')
+    ds.row_dimensions[6].height = 20
+
     # ── Hidden data table for chart (cols H-I, rows 3-5) ─────────────────────
     ds.cell(3, 8, 'Status');  ds.cell(3, 9, 'Count')
     ds.cell(4, 8, 'Passed');  ds.cell(4, 9, passed)
@@ -150,11 +158,11 @@ def add_dashboard(wb, all_records):
 
     # ── Donut chart ───────────────────────────────────────────────────────────
     chart = DoughnutChart()
-    chart.title       = 'Pass / Fail Distribution'
-    chart.style       = 10
-    chart.holeSize    = 50
-    chart.width       = 14
-    chart.height      = 12
+    chart.title    = None    # title removed – heading is in the cell above chart
+    chart.style    = 10
+    chart.holeSize = 50
+    chart.width    = 14
+    chart.height   = 10
 
     data   = Reference(ds, min_col=9, min_row=3, max_row=5)   # counts incl header
     labels = Reference(ds, min_col=8, min_row=4, max_row=5)   # labels
@@ -230,10 +238,12 @@ def parse_args():
     return parser.parse_args()
 
 def build_record(args):
-    spec_file = f'e2e-demo-{args.id}.spec.ts'
+    id_padded = str(args.id).zfill(3)          # e.g. 1 → "001"
+    tc_label  = f'TC-{id_padded}'              # e.g. "TC-001"
+    spec_file = f'TC-{id_padded}.spec.ts'
     # Professional multi-line Notes (\n renders with wrap_text in Excel)
     lines = [
-        f'Run ID      : {args.id}',
+        f'Run ID      : {tc_label}',
         f'Spec File   : {spec_file}',
         f'Browser     : Chromium (Headed)',
         f'Branch      : {args.branch}',
@@ -244,8 +254,8 @@ def build_record(args):
         lines.append(f'Remarks     : {args.notes}')
     notes = '\n'.join(lines)
     return {
-        'run_id':         args.id,
-        'Test Name':      f'e2e-demo-{args.id}',
+        'run_id':         tc_label,
+        'Test Name':      tc_label,
         'Target URL':     TARGET_URL,
         'Status':         args.status,
         'Execution Date': date.today().isoformat(),

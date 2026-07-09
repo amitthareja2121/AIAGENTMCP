@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { testData } from './test-data';
 
-test('Login -> Hand Tools -> Measuring Tape -> Add to Cart -> Checkout - Run 1', async ({ page }) => {
+test('TC-001 | Login → Hand Tools → Measuring Tape → Add to Cart → Checkout', async ({ page }) => {
   test.setTimeout(180_000);
 
   // Step 1: Navigate to site (URL from test-data.ts)
@@ -85,5 +85,5 @@ test('Login -> Hand Tools -> Measuring Tape -> Add to Cart -> Checkout - Run 1',
 
   // Trace capture
   await page.context().tracing.start({ screenshots: false, snapshots: true, sources: true });
-  await page.context().tracing.stop({ path: 'test-results/trace-1.zip' });
+  await page.context().tracing.stop({ path: 'test-results/trace-TC-001.zip' });
 });
