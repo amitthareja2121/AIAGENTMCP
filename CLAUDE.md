@@ -13,15 +13,51 @@ execution results to Excel summaries.
 
 Whenever the user asks to create, modify, or run a test case scenario via a short chat prompt, always wrap the execution inside our standard enterprise pipeline seamlessly:
 
-1. **Sequential ID Generation:** Before creating a new spec, scan `tests/TC-*.spec.ts` to find the highest existing number, then use `highest + 1` (zero-padded to 3 digits) as the run ID. If no specs exist yet, start at `1` → `TC-001`. Use this ID to name the generated test file (`tests/TC-[NNN].spec.ts`) and to coordinate logging. Use this PowerShell command to derive the next ID:
+1. **Test Suite & Sequential ID Generation:**
+   - Tests are organised into **Suites (TS-NNN)** each containing **Test Cases (TC-NNN)**.
+   - **Placement rules (in priority order):**
+     1. **Suite explicitly specified** (e.g. "add to TS-001") → add next TC to that exact suite.
+     2. **"New suite" / "new TS" explicitly requested** → create the next TS folder and start with TC-001.
+     3. **No suite mentioned and at least one TS exists** → add next TC to the **highest-numbered existing TS** (current working suite).
+     4. **No suite mentioned and no TS exists at all** → create TS-001 and add TC-001.
+   - File path: `tests/TS-[NNN]/TC-[NNN].spec.ts`
+   - Use this PowerShell to find the **current working suite** (highest existing TS):
    ```powershell
-   $files = Get-ChildItem tests\TC-*.spec.ts -ErrorAction SilentlyContinue
-   $id = if ($files) { ($files | ForEach-Object { [int](($_.Name -replace 'TC-','') -replace '\.spec\.ts','') } | Measure-Object -Maximum).Maximum + 1 } else { 1 }
-   $idStr = $id.ToString('D3')
-   Write-Host "RUN ID: TC-$idStr"
+   $dirs = Get-ChildItem tests\TS-* -Directory -ErrorAction SilentlyContinue
+   if ($dirs) {
+       $tsId = ($dirs | ForEach-Object { [int]($_.Name -replace 'TS-','') } | Measure-Object -Maximum).Maximum
+       $tsStr = $tsId.ToString().PadLeft(3,'0')
+       Write-Host "CURRENT SUITE: TS-$tsStr"
+   } else {
+       Write-Host "CURRENT SUITE: TS-001 (new)"
+   }
+   ```
+   - Use this PowerShell to derive **next NEW suite ID** (only when explicitly requested):
+   ```powershell
+   $dirs = Get-ChildItem tests\TS-* -Directory -ErrorAction SilentlyContinue
+   $tsId = if ($dirs) { ($dirs | ForEach-Object { [int]($_.Name -replace 'TS-','') } | Measure-Object -Maximum).Maximum + 1 } else { 1 }
+   $tsStr = $tsId.ToString().PadLeft(3,'0')
+   Write-Host "NEW SUITE ID: TS-$tsStr"
+   ```
+   - Use this PowerShell to derive next TC ID inside an existing suite:
+   ```powershell
+   $files = Get-ChildItem tests\TS-NNN\TC-*.spec.ts -ErrorAction SilentlyContinue
+   $tcId = if ($files) { ($files | ForEach-Object { [int](($_.Name -replace 'TC-','') -replace '\.spec\.ts','') } | Measure-Object -Maximum).Maximum + 1 } else { 1 }
+   $tcStr = $tcId.ToString().PadLeft(3,'0')
+   Write-Host "TC ID: TC-$tcStr"
    ```
 2. **Execution Mode:** Always execute Playwright tests in HEADED mode (`headless: false`) so the UI actions are physically visible on screen.
-3. **Smart Data Logging:** Append execution metrics and the sequential ID directly into the spreadsheet matching the pattern `C:\Users\1000528\files_claude\E2E_Test_Execution_Summary-[ID].xlsx`. Maintain historical data integrity.
+3. **Pipeline Command:**
+   ```powershell
+   # Run specific TC in a suite
+   powershell -ExecutionPolicy Bypass -File "run-tc.ps1" -TS 001 -TC 001
+   # Run multiple TCs
+   powershell -ExecutionPolicy Bypass -File "run-tc.ps1" -TS 001 -TC "001,002"
+   # Run entire suite
+   powershell -ExecutionPolicy Bypass -File "run-tc.ps1" -TS 001
+   ```
+4. **Allure Report Naming:** `Execution_Report_<date>_TS-<NNN>_Run-<NNN>.html` — run counter resets to 001 each new date per suite.
+5. **Smart Data Logging:** Append execution metrics to `C:\Users\1000528\files_claude\E2E_Test_Execution_Summary.xlsx`.
 
 ## Test Data Rule (Automatic — No Need to Mention in Prompt)
 The file `tests/test-data.ts` is the single source of truth for all credentials, billing, and payment details.

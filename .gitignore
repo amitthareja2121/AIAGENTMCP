@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Playwright artifacts
+test-results/
+playwright-report/
+
+# Allure artifacts
+allure-results/
+allure-report/
+allure-report-full/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Excel reports (generated, not source)
+*.xlsx
