@@ -1,0 +1,46 @@
+- generic [ref=f4e2]:
+  - generic [ref=f4e3]:
+    - text: View the
+    - link "Documentation" [ref=f4e4] [cursor=pointer]:
+      - /url: https://testsmith-io.github.io/practice-software-testing/#/
+    - text: for this application.
+  - generic [ref=f4e5]:
+    - generic [ref=f4e7]:
+      - generic [ref=f4e8]: Practice Black Box Testing & Bug Hunting
+      - button "Testing Guide" [ref=f4e9] [cursor=pointer]
+      - button "🐛 Bug Hunting" [ref=f4e10] [cursor=pointer]
+    - navigation [ref=f4e11]:
+      - generic [ref=f4e12]:
+        - link "Practice Software Testing - Toolshop" [ref=f4e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f4e32]:
+          - menubar "Main menu" [ref=f4e33]:
+            - menuitem [ref=f4e34]:
+              - link "Home" [ref=f4e35] [cursor=pointer]:
+                - /url: /
+            - menuitem [ref=f4e36]:
+              - button "Categories" [ref=f4e37] [cursor=pointer]
+            - menuitem [ref=f4e38]:
+              - link "Contact" [ref=f4e39] [cursor=pointer]:
+                - /url: /contact
+            - menuitem [ref=f4e40]:
+              - link "Sign in" [ref=f4e41] [cursor=pointer]:
+                - /url: /auth/login
+          - button "Select language" [ref=f4e43] [cursor=pointer]: EN
+  - contentinfo [ref=f4e48]:
+    - generic [ref=f4e49]:
+      - text: This is a DEMO application (
+      - link "GitHub repo" [ref=f4e50] [cursor=pointer]:
+        - /url: https://github.com/testsmith-io/practice-software-testing
+      - text: ), used for software testing training purpose. |
+      - link "Privacy Policy" [ref=f4e51] [cursor=pointer]:
+        - /url: /privacy
+      - text: "| Banner photo by"
+      - link "Barn Images" [ref=f4e52] [cursor=pointer]:
+        - /url: https://unsplash.com/@barnimages
+      - text: "on"
+      - link "Unsplash" [ref=f4e53] [cursor=pointer]:
+        - /url: https://unsplash.com/photos/t5YUoHW6zRo
+      - text: .
+    - generic [ref=f4e54]: v2.3 | Built 2026-07-06 | Angular 20.0.5
+  - button "Open chat" [ref=f4e56] [cursor=pointer]

@@ -1,0 +1,148 @@
+- generic [ref=f7e2]:
+  - generic [ref=f7e3]:
+    - text: View the
+    - link "Documentation" [ref=f7e4] [cursor=pointer]:
+      - /url: https://testsmith-io.github.io/practice-software-testing/#/
+    - text: for this application.
+  - generic [ref=f7e5]:
+    - generic [ref=f7e7]:
+      - generic [ref=f7e8]: Practice Black Box Testing & Bug Hunting
+      - button "Testing Guide" [ref=f7e9] [cursor=pointer]
+      - button "🐛 Bug Hunting" [ref=f7e10] [cursor=pointer]
+    - navigation [ref=f7e11]:
+      - generic [ref=f7e12]:
+        - link "Practice Software Testing - Toolshop" [ref=f7e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f7e32]:
+          - menubar "Main menu" [ref=f7e33]:
+            - menuitem [ref=f7e34]:
+              - link "Home" [ref=f7e35] [cursor=pointer]:
+                - /url: /
+            - menuitem [ref=f7e432]:
+              - button "Categories" [ref=f7e37] [cursor=pointer]
+            - menuitem [ref=f7e38]:
+              - link "Contact" [ref=f7e39] [cursor=pointer]:
+                - /url: /contact
+            - menuitem [ref=f7e185]:
+              - button "John Doe" [ref=f7e186] [cursor=pointer]
+          - button "Select language" [ref=f7e43] [cursor=pointer]: EN
+  - generic [ref=f7e660]:
+    - generic [ref=f7e661]:
+      - figure [ref=f7e663]:
+        - img "Claw Hammer" [ref=f7e665]
+        - generic [ref=f7e666]:
+          - text: Photo by
+          - link "Andrew George" [ref=f7e667] [cursor=pointer]:
+            - /url: https://unsplash.com/@andrewjoegeorge
+          - text: "on"
+          - link "Unsplash" [ref=f7e668] [cursor=pointer]:
+            - /url: https://unsplash.com/photos/YU2mCvXR0wA
+          - text: .
+      - generic [ref=f7e669]:
+        - heading "Claw Hammer" [level=1] [ref=f7e670]
+        - paragraph [ref=f7e671]:
+          - generic "category" [ref=f7e672]: Hammer
+          - generic "brand" [ref=f7e673]: MightyCraft Hardware
+        - generic [ref=f7e674]: $11.48
+        - generic "A = most environmentally friendly, E = higher environmental impact" [ref=f7e676]:
+          - text: "CO₂:"
+          - generic [ref=f7e677]: A
+          - generic [ref=f7e678]: B
+          - generic [ref=f7e679]: C
+          - generic [ref=f7e680]: D
+          - generic [ref=f7e681]: E
+        - paragraph [ref=f7e682]: Traditional claw hammer with a polished carbon steel head engineered for driving and removing nails with precision and confidence. The rubber-wrapped handle provides a secure, comfortable grip even in wet, dusty, or cold conditions where bare metal or wood handles would slip. At 500g, it offers the ideal balance between striking power and maneuverability for general carpentry, framing, and construction tasks. The curved claw design allows for smooth nail extraction without gouging or marring wood surfaces, protecting your finished work. The head-to-handle connection uses an epoxy-bonded wedge system that prevents loosening over time. A reliable, no-nonsense tool that professional carpenters and weekend builders alike reach for every day.
+        - generic [ref=f7e683]:
+          - button "Decrease quantity" [ref=f7e684] [cursor=pointer]
+          - generic [ref=f7e688]: Quantity
+          - spinbutton "Quantity" [ref=f7e689]: "1"
+          - button "Increase quantity" [ref=f7e690] [cursor=pointer]
+        - generic [ref=f7e694]:
+          - button [active] [ref=f7e695] [cursor=pointer]
+          - button [ref=f7e699] [cursor=pointer]
+          - button [ref=f7e703] [cursor=pointer]
+    - generic [ref=f7e708]:
+      - heading "Specifications" [level=3] [ref=f7e709]
+      - table [ref=f7e710]:
+        - rowgroup [ref=f7e711]:
+          - row [ref=f7e712]:
+            - cell "Handle Material" [ref=f7e713]
+            - cell "Rubber" [ref=f7e714]
+          - row [ref=f7e715]:
+            - cell "Head Weight" [ref=f7e716]
+            - cell "400g" [ref=f7e717]
+          - row [ref=f7e718]:
+            - cell "Length" [ref=f7e719]
+            - cell "320mm" [ref=f7e720]
+          - row [ref=f7e721]:
+            - cell "Material" [ref=f7e722]
+            - cell "Carbon Steel" [ref=f7e723]
+          - row [ref=f7e724]:
+            - cell "Warranty" [ref=f7e725]
+            - cell "3years" [ref=f7e726]
+          - row [ref=f7e727]:
+            - cell "Weight" [ref=f7e728]
+            - cell "500g" [ref=f7e729]
+    - separator [ref=f7e730]
+    - generic [ref=f7e731]:
+      - heading "Related products" [level=2] [ref=f7e732]
+      - generic [ref=f7e734]:
+        - link [ref=f7e735] [cursor=pointer]:
+          - /url: /product/01KXN5XF2767WVRC0R51XQM1E2
+          - img "Claw Hammer with Shock Reduction Grip" [ref=f7e737]
+          - generic [ref=f7e738]:
+            - heading "Claw Hammer with Shock Reduction Grip" [level=5] [ref=f7e739]
+            - link "More information" [ref=f7e740]:
+              - /url: "#"
+        - link [ref=f7e741] [cursor=pointer]:
+          - /url: /product/01KXN5XF2A52H3HK4N44V5EGNK
+          - img "Hammer" [ref=f7e743]
+          - generic [ref=f7e744]:
+            - heading "Hammer" [level=5] [ref=f7e745]
+            - link "More information" [ref=f7e746]:
+              - /url: "#"
+        - link [ref=f7e747] [cursor=pointer]:
+          - /url: /product/01KXN5XF2HTA416V7P6FDT3PDV
+          - img "Thor Hammer" [ref=f7e749]
+          - generic [ref=f7e750]:
+            - heading "Thor Hammer" [level=5] [ref=f7e751]
+            - link "More information" [ref=f7e752]:
+              - /url: "#"
+        - link [ref=f7e753] [cursor=pointer]:
+          - /url: /product/01KXN5XF2NBYM3YCZD3MZB3SDR
+          - img "Sledgehammer" [ref=f7e755]
+          - generic [ref=f7e756]:
+            - heading "Sledgehammer" [level=5] [ref=f7e757]
+            - link "More information" [ref=f7e758]:
+              - /url: "#"
+        - link [ref=f7e759] [cursor=pointer]:
+          - /url: /product/01KXN5XF2RVH37W9W6M30GPT1C
+          - img "Claw Hammer with Fiberglass Handle" [ref=f7e761]
+          - generic [ref=f7e762]:
+            - heading "Claw Hammer with Fiberglass Handle" [level=5] [ref=f7e763]
+            - link "More information" [ref=f7e764]:
+              - /url: "#"
+        - link [ref=f7e765] [cursor=pointer]:
+          - /url: /product/01KXN5XF2TVNKQCV37M7GCWWYB
+          - img "Court Hammer" [ref=f7e767]
+          - generic [ref=f7e768]:
+            - heading "Court Hammer" [level=5] [ref=f7e769]
+            - link "More information" [ref=f7e770]:
+              - /url: "#"
+  - contentinfo [ref=f7e160]:
+    - generic [ref=f7e161]:
+      - text: This is a DEMO application (
+      - link "GitHub repo" [ref=f7e162] [cursor=pointer]:
+        - /url: https://github.com/testsmith-io/practice-software-testing
+      - text: ), used for software testing training purpose. |
+      - link "Privacy Policy" [ref=f7e163] [cursor=pointer]:
+        - /url: /privacy
+      - text: "| Banner photo by"
+      - link "Barn Images" [ref=f7e164] [cursor=pointer]:
+        - /url: https://unsplash.com/@barnimages
+      - text: "on"
+      - link "Unsplash" [ref=f7e165] [cursor=pointer]:
+        - /url: https://unsplash.com/photos/t5YUoHW6zRo
+      - text: .
+    - generic [ref=f7e166]: v2.3 | Built 2026-07-06 | Angular 20.0.5
+  - button "Open chat" [ref=f7e168] [cursor=pointer]

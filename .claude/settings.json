@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "PowerShell(git *)",
+      "PowerShell(npm *)",
+      "Glob",
+      "Grep"
+    ]
+  }
+}
